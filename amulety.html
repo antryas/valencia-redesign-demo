@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#0B0C10">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300&family=Sofia+Sans+Condensed:wght@400;500;600&family=Sofia+Sans+Extra+Condensed:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@300;400;500&family=Sofia+Sans+Condensed:wght@400;500;600&family=Sofia+Sans+Extra+Condensed:wght@200;300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="img/cut/43178.webp">
 </head>
@@ -18,11 +18,12 @@
 
 <div class="topbar" aria-label="Умови магазину">
   <div class="topbar__track">
+    <span>SALE −50%</span>
+    <span>Доступна оплата частинами від ПриватБанку та monobank</span>
     <span>Безкоштовна доставка від 3 500 ₴</span>
-    <span>Оплата частинами — ПриватБанк і monobank</span>
-    <span>Повернення протягом 14 днів</span>
-    <span>Інтернет-магазин щодня 10:00–19:00</span>
-    <span class="dup" aria-hidden="true"><span>Безкоштовна доставка від 3 500 ₴</span><span>Оплата частинами — ПриватБанк і monobank</span><span>Повернення протягом 14 днів</span><span>Інтернет-магазин щодня 10:00–19:00</span></span>
+    <span>Повернення до 14 днів</span>
+    <span>Інтернет-магазин працює без вихідних з 10:00 до 19:00</span>
+    <span class="dup" aria-hidden="true"><span>SALE −50%</span><span>Доступна оплата частинами від ПриватБанку та monobank</span><span>Безкоштовна доставка від 3 500 ₴</span><span>Повернення до 14 днів</span><span>Інтернет-магазин працює без вихідних з 10:00 до 19:00</span></span>
   </div>
 </div>
 
@@ -49,13 +50,13 @@
 
 <nav class="catnav" aria-label="Розділи каталогу">
   <div class="catnav__in">
-    <a href="#">Новинки</a>
     <a href="amulety.html" aria-current="page">Swarovski</a>
-    <a href="#">Прикраси</a>
+    <a href="#">Новинки</a>
     <a href="#">Аксесуари</a>
     <a href="#">Декор інтер’єру</a>
-    <a href="#">Сервірування столу</a>
     <a href="#">Для офісу</a>
+    <a href="#">Сервірування столу</a>
+    <a href="#">Елітна біжутерія</a>
     <a href="index.html#gifts">Подарунки</a>
     <a href="#">Sale</a>
   </div>
@@ -68,15 +69,15 @@
   </div>
   <nav aria-label="Мобільна навігація">
     <a href="amulety.html">Swarovski <small>Амулети</small></a>
-    <a href="#">Новинки</a>
     <a href="#">Бренди</a>
-    <a href="#">Прикраси</a>
+    <a href="#">Новинки</a>
     <a href="#">Аксесуари</a>
     <a href="#">Декор інтер’єру</a>
-    <a href="#">Сервірування столу</a>
     <a href="#">Для офісу</a>
+    <a href="#">Сервірування столу</a>
+    <a href="#">Елітна біжутерія</a>
     <a href="index.html#gifts" data-menu-close>Подарунки</a>
-    <a href="index.html#stores" data-menu-close>Бутики</a>
+    <a href="index.html#stores" data-menu-close>Знайти магазин</a>
   </nav>
   <div class="menu__foot">
     <div class="lang" role="group" aria-label="Мова сайту" style="display:flex"><a href="#" data-lang aria-current="true">UK</a><a href="#" data-lang>RU</a><a href="#" data-lang>EN</a></div>
@@ -106,15 +107,20 @@
     </header>
 
     <nav class="subcats" aria-label="Прикраси Swarovski">
-      <a href="#">Усі прикраси</a>
+      <a href="#">Див. всі прикраси</a>
       <a href="amulety.html" aria-current="page">Амулети</a>
       <a href="#">Браслети</a>
-      <a href="#">Кольє</a>
-      <a href="#">Підвіски</a>
-      <a href="#">Сережки</a>
-      <a href="#">Каблучки</a>
       <a href="#">Чокери</a>
-      <a href="#">Комплекти</a>
+      <a href="#">Сережки</a>
+      <a href="#">Намиста та підвіски</a>
+      <a href="#">Підвіски</a>
+      <a href="#">Каблучки</a>
+      <a href="#">Кліпси</a>
+      <a href="#">Пусети</a>
+      <a href="#">Набори прикрас</a>
+      <a href="#">Прикраси з родієм</a>
+      <a href="#">На випускний</a>
+      <a href="#">Чоловіча колекція</a>
     </nav>
   </div>
 
@@ -145,11 +151,12 @@
           <span class="result wide label" data-result>19 виробів</span>
           <label class="sort"><span class="label">Сортування</span>
             <select data-sort aria-label="Сортування">
-              <option value="rec">Рекомендовані</option>
-              <option value="new">Спочатку новинки</option>
-              <option value="asc">Спочатку дешевші</option>
-              <option value="desc">Спочатку дорожчі</option>
-              <option value="name">За назвою</option>
+              <option value="old">Нові знизу</option>
+              <option value="rec" selected>Нові зверху</option>
+              <option value="asc">Спочатку дешевше</option>
+              <option value="desc">Спочатку дорожче</option>
+              <option value="name">Назва ↓</option>
+              <option value="name-desc">Назва ↑</option>
             </select>
           </label>
           <div class="density" role="group" aria-label="Кількість у ряду">
@@ -176,7 +183,7 @@
       <div class="facts rv">
         <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><b>Оригінал Swarovski</b><span>Партнерський бутик і гарантія виробника</span></div>
         <div><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg><b>Приміряти в бутику</b><span>Одеса, Київ і Дніпро</span></div>
-        <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg><b>Повернення 14 днів</b><span>Безкоштовна доставка від 3 500 ₴</span></div>
+        <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg><b>Повернення до 14 днів</b><span>Безкоштовна доставка від 3 500 ₴</span></div>
         <div><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13"/><path d="M3 10h18M7 15h4"/></svg><b>Оплата частинами</b><span>ПриватБанк і monobank</span></div>
       </div>
     </div>
@@ -188,24 +195,24 @@
     <div class="foot__grid">
       <div class="foot__about">
         <a class="logo" href="index.html" aria-label="Valencia — на головну"><img src="img/home/logo.svg" alt="Valencia" width="157" height="46"></a>
-        <p>Кришталь, порцеляна, прикраси та аксесуари від європейських домів.</p>
+        <p>Інтернет-магазин «Valencia». Елітні подарунки для найдорожчих людей.</p>
         <a class="ul" href="mailto:shop@valencia.com.ua">shop@valencia.com.ua</a>
       </div>
       <div>
         <h4 class="label">Покупцям</h4>
-        <ul><li><a href="#">Оплата і доставка</a></li><li><a href="#">Повернення і обмін</a></li><li><a href="#">Гарантія Swarovski</a></li><li><a href="#">Публічний договір</a></li></ul>
+        <ul><li><a href="#">Оплата і доставка</a></li><li><a href="#">Повернення і обмін Swarovski</a></li><li><a href="#">Гарантія Swarovski</a></li><li><a href="#">Публічний договір (Оферта)</a></li></ul>
       </div>
       <div>
         <h4 class="label">Valencia</h4>
-        <ul><li><a href="index.html#stores">Бутики</a></li><li><a href="#">Новини та акції</a></li><li><a href="#">Партнерам</a></li><li><a href="#">Бренди</a></li></ul>
+        <ul><li><a href="index.html#stores">Знайти магазин</a></li><li><a href="#">Новини та акції</a></li><li><a href="#">Партнерам</a></li><li><a href="#">Бренди</a></li></ul>
       </div>
       <div>
         <h4 class="label">Ми в мережі</h4>
         <ul><li><a href="https://www.facebook.com/valencia.com.ua" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.youtube.com/channel/UCtPYzrJeFZRLNFfCMpR2O1g" target="_blank" rel="noopener">YouTube</a></li></ul>
       </div>
       <div>
-        <h4 class="label">Інтернет-магазин</h4>
-        <ul><li><a href="tel:+380735290707">+38 073 529 07 07</a></li><li><span style="color:var(--dim)">Щодня 10:00–19:00</span></li></ul>
+        <h4 class="label">Інтернет-магазин «Валенсія»</h4>
+        <ul><li><a href="tel:+380735290707">+38 073 529 07 07</a></li><li><a href="tel:+380665290707">+38 066 529 07 07</a></li><li><a href="tel:+380975290707">+38 097 529 07 07</a></li><li><span style="color:var(--dim)">Без вихідних з 10:00 до 19:00</span></li></ul>
       </div>
     </div>
     <div class="foot__bottom label">

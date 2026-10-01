@@ -104,7 +104,7 @@
     const p = byId(id);
     cart[p.id] = (cart[p.id] || 0) + 1;
     store.set("cart", cart); syncCounts(true); renderPanel();
-    toast("«" + p.name + "» додано в кошик");
+    toast("«" + p.name + "» додано до кошика");
   }
   function setQty(id, q) {
     if (q <= 0) delete cart[id]; else cart[id] = q;
@@ -141,8 +141,8 @@
           '<img class="b" src="' + IMG + "p/" + p.id + '-2.webp" alt="" loading="lazy" width="1000" height="1000">' +
         "</a>" +
         favBtn(p, "pc__fav") +
-        '<div class="pc__addwrap"><button class="pc__add" data-add="' + p.id + '">Додати в кошик</button></div>' +
-        '<button class="pc__plus" data-add="' + p.id + '" aria-label="Додати в кошик: ' + esc(p.name) + '">' + ICON.plus + "</button>" +
+        '<div class="pc__addwrap"><button class="pc__add" data-add="' + p.id + '">Додати до кошика</button></div>' +
+        '<button class="pc__plus" data-add="' + p.id + '" aria-label="Додати до кошика: ' + esc(p.name) + '">' + ICON.plus + "</button>" +
         '<div class="pc__info">' +
           '<div class="pc__meta label"><span>' + p.coll + '</span><span class="sku">' + p.sku + "</span></div>" +
           '<h3 class="pc__name"><a href="#" data-qv="' + p.id + '">' + esc(p.name) + "</a>" + twin + "</h3>" +
@@ -204,13 +204,13 @@
           "<dt>Покриття</dt><dd>" + PLATING[p.plating] + "</dd>" +
           "<dt>Розмір</dt><dd>" + p.size + "</dd>" +
           (p.weight ? "<dt>Вага</dt><dd>" + p.weight + "</dd>" : "") +
-          "<dt>Країна-виробник</dt><dd>Австрія</dd>" +
+          "<dt>Країна-виробник товару</dt><dd>Австрія</dd>" +
         "</dl>" +
         '<div class="qv__actions">' +
-          '<button class="btn" data-add="' + p.id + '">Додати в кошик · ' + fmt(p.price) + "</button>" +
+          '<button class="btn" data-add="' + p.id + '">Додати до кошика · ' + fmt(p.price) + "</button>" +
           favBtn(p, "fav fav--box") +
         "</div>" +
-        '<div class="qv__note label">Безкоштовна доставка від 3 500 ₴ · Повернення 14 днів · Оплата частинами</div>' +
+        '<div class="qv__note label">Повернення до 14 днів · Безкоштовна стандартна доставка понад 3 500 ₴ · Можлива оплата частинами</div>' +
       "</div>";
     qv.dataset.pid = p.id;
     showDialog(qv, $(".qv__box", qv), $(".qv__close", qv));
@@ -247,7 +247,7 @@
           '<div class="line__bot">' +
             (mode === "cart"
               ? '<div class="qty"><button data-qty="' + p.id + '" data-d="-1" aria-label="Менше">' + ICON.minus + "</button><output aria-label=\"Кількість\">" + q + '</output><button data-qty="' + p.id + '" data-d="1" aria-label="Більше">' + ICON.plus2 + "</button></div>"
-              : '<button class="line__rm" data-add="' + p.id + '">У кошик</button>') +
+              : '<button class="line__rm" data-add="' + p.id + '">Додати до кошика</button>') +
             '<div class="price">' + fmt(p.price * (mode === "cart" ? q : 1)) + "</div>" +
           "</div>" +
           (mode === "cart" ? '<button class="line__rm" style="margin-top:10px" data-qty="' + p.id + '" data-d="-999">Видалити</button>' : "") +
@@ -379,7 +379,7 @@
       $("[data-vit-name]", vit).textContent = p.name;
       $("[data-vit-price]", vit).innerHTML = fmt(p.price) + (p.old ? "<s>" + fmt(p.old) + "</s>" : "");
       $("[data-vit-add]", vit).dataset.add = p.id;
-      $("[data-vit-add]", vit).setAttribute("aria-label", "Додати в кошик: " + p.name);
+      $("[data-vit-add]", vit).setAttribute("aria-label", "Додати до кошика: " + p.name);
       stage.dataset.qv = p.id;
       stage.setAttribute("aria-label", "Швидкий перегляд: " + p.name);
       if (auto) {
@@ -485,10 +485,11 @@
     function render() {
       let list = PRODUCTS.filter((p) => match(p));
       const s = state.sort;
-      if (s === "new") list = list.slice().sort((a, b) => b.isNew - a.isNew || b.id - a.id);
+      if (s === "old") list = list.slice().reverse();
       if (s === "asc") list = list.slice().sort((a, b) => a.price - b.price);
       if (s === "desc") list = list.slice().sort((a, b) => b.price - a.price);
       if (s === "name") list = list.slice().sort((a, b) => a.name.localeCompare(b.name, "uk"));
+      if (s === "name-desc") list = list.slice().sort((a, b) => b.name.localeCompare(a.name, "uk"));
       const pristine = list.length === PRODUCTS.length && s === "rec";
       const cards = list.map((p, i) => card(p, i));
       if (pristine) {
